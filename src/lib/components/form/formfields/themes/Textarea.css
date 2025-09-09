@@ -1,0 +1,101 @@
+.textarea-root {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	margin: 12px 0;
+	font-family: sans-serif;
+}
+
+/* Base textarea */
+.textarea-element {
+	padding: 12px;
+	font-size: 16px;
+	line-height: 1.5;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	background: white;
+	outline: none;
+	resize: vertical;
+}
+
+/* Label */
+.floating-label {
+	position: absolute;
+	left: 12px;
+	top: 14px;
+	color: #777;
+	font-size: 16px;
+	pointer-events: none;
+	transition: all 0.2s ease;
+	background: white;
+	padding: 0 4px;
+}
+
+/* Move label when textarea focused or has content */
+.textarea-element:focus + .floating-label,
+.textarea-element:not(:placeholder-shown) + .floating-label,
+.textarea-element[value]:not([value='']) + .floating-label {
+	top: -8px;
+	left: 8px;
+	font-size: 12px;
+	color: #1976d2;
+}
+
+/* Helper text */
+.helper-text {
+	margin: 4px 0 0 4px;
+	font-size: 12px;
+	color: #666;
+}
+.helper-text.error {
+	color: #d32f2f;
+}
+
+/* Error state */
+.textarea-root.error .textarea-element {
+	border-color: #d32f2f;
+}
+.textarea-root.error .floating-label {
+	color: #d32f2f;
+}
+
+/* Variants */
+.textarea-root.outlined .textarea-element {
+	border: 1px solid #ccc;
+	background: white;
+}
+
+.textarea-root.filled .textarea-element {
+	border: none;
+	border-bottom: 1px solid #ccc;
+	background: #f5f5f5;
+	border-radius: 4px 4px 0 0;
+}
+.textarea-root.filled .textarea-element:focus {
+	border-bottom: 2px solid #1976d2;
+}
+
+.textarea-root.standard .textarea-element {
+	border: none;
+	border-bottom: 1px solid #ccc;
+	border-radius: 0;
+	padding: 8px 12px;
+}
+.textarea-root.standard .textarea-element:focus {
+	border-bottom: 2px solid #1976d2;
+}
+
+/* Sizes */
+.textarea-root.small .textarea-element {
+	font-size: 14px;
+	padding: 8px;
+}
+.textarea-root.medium .textarea-element {
+	font-size: 16px;
+	padding: 12px;
+}
+
+/* Full width */
+.textarea-root.fullWidth {
+	width: 100%;
+}

@@ -46,7 +46,6 @@
 		{disabled}
 		{readonly}
 		{required}
-		autofocus={autoFocus}
 		aria-describedby={ariaDescribedby}
 		autocomplete={autoComplete ? 'on' : 'off'}
 		bind:value

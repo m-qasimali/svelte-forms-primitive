@@ -25,7 +25,7 @@
 		variant = /** 'outlined' | 'filled' | 'underline' */ 'outlined',
 		size = /** 'small' | 'medium' | 'large' */ 'medium',
 		fullWidth = false,
-		layout = /** 'stacked' | 'inline' */ 'stacked',
+		layout = /** 'stacked' | 'inline' | 'floating' */ 'stacked',
 		className = '',
 		labelSuffix = null as Snippet | null,
 		start = null as Snippet | null,
@@ -39,7 +39,7 @@
 	const descId = $state(`${name ?? 'input'}-desc`);
 	const msgId = $state(`${name ?? 'input'}-msg`);
 
-	// generate a stable id if not provided
+	// generate stable id if not provided
 	$effect(() => {
 		if (!id) id = `${name ?? 'input'}-${Math.random().toString(36).slice(2)}`;
 	});
@@ -61,7 +61,8 @@
 <div
 	class={`field ${layout} ${errorText ? 'field--error' : ''} ${fullWidth ? 'field--full' : ''} ${className}`}
 >
-	{#if label}
+	<!-- stacked + inline behave normally -->
+	{#if label && layout !== 'floating'}
 		<label class="field__label" for={id}>
 			{label}{required ? ' *' : ''}
 			{#if labelSuffix}{@render labelSuffix()}{/if}
@@ -69,25 +70,53 @@
 	{/if}
 
 	<div class="field__control">
-		<Input
-			{id}
-			{name}
-			type={type === InputType.PASSWORD && showPassword ? InputType.TEXT : type}
-			bind:value
-			{placeholder}
-			{disabled}
-			{readonly}
-			{autoComplete}
-			{autoFocus}
-			{variant}
-			{size}
-			ariaInvalid={errorText ? true : false}
-			ariaDescribedby={ariaDescribedBy}
-			className="field-input"
-			startAdornment={start}
-			{endAdornment}
-			{...props}
-		/>
+		{#if layout === 'floating'}
+			<div class="floating-wrapper">
+				<Input
+					{id}
+					{name}
+					type={type === InputType.PASSWORD && showPassword ? InputType.TEXT : type}
+					bind:value
+					placeholder=" "
+					{disabled}
+					{readonly}
+					{autoComplete}
+					{autoFocus}
+					{variant}
+					{size}
+					ariaInvalid={!!errorText}
+					ariaDescribedby={ariaDescribedBy}
+					className="field-input"
+					startAdornment={start}
+					{endAdornment}
+					{...props}
+				/>
+				<label for={id} class="floating-label">
+					{label}{required ? ' *' : ''}
+					{#if labelSuffix}{@render labelSuffix()}{/if}
+				</label>
+			</div>
+		{:else}
+			<Input
+				{id}
+				{name}
+				type={type === InputType.PASSWORD && showPassword ? InputType.TEXT : type}
+				bind:value
+				{placeholder}
+				{disabled}
+				{readonly}
+				{autoComplete}
+				{autoFocus}
+				{variant}
+				{size}
+				ariaInvalid={!!errorText}
+				ariaDescribedby={ariaDescribedBy}
+				className="field-input"
+				startAdornment={start}
+				{endAdornment}
+				{...props}
+			/>
+		{/if}
 	</div>
 
 	{#if description}
@@ -100,11 +129,47 @@
 </div>
 
 <style>
+	/* password toggle button */
 	.toggle-password {
 		background: none;
 		border: none;
 		cursor: pointer;
 		font-size: 1rem;
 		padding: 0 0.5rem;
+	}
+
+	.floating-wrapper {
+		position: relative;
+		display: inline-flex;
+		flex-direction: column;
+		width: 100%;
+	}
+
+	.input-element {
+		width: 100%;
+		padding: 12px;
+		font-size: 1rem;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+	}
+
+	.floating-label {
+		position: absolute;
+		left: 12px;
+		top: 50%;
+		transform: translateY(-50%);
+		color: #777;
+		transition: 0.2s ease all;
+		background: white; /* prevent overlap with border */
+		padding: 0 4px;
+		pointer-events: none;
+	}
+
+	.floating-wrapper:focus-within .floating-label,
+	.floating-wrapper.has-value .floating-label {
+		top: -8px;
+		left: 8px;
+		font-size: 0.75rem;
+		color: #333;
 	}
 </style>

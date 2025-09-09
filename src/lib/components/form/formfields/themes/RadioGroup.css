@@ -1,0 +1,91 @@
+.radio-group {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+.radio-group.row {
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.radio-root {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	gap: 0.5rem;
+}
+
+/* Hide native input */
+.radio-input {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+/* Default icon */
+.radio-icon {
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	display: inline-block;
+	box-sizing: border-box;
+	transition: all 0.2s ease-in-out;
+}
+
+/* === Variants === */
+.radio-icon.outlined {
+	border: 2px solid #999;
+	background-color: transparent;
+}
+.radio-icon.outlined.checked {
+	border-color: currentColor;
+	background-color: transparent;
+	box-shadow: inset 0 0 0 4px currentColor;
+}
+
+.radio-icon.filled {
+	background-color: #e0e0e0;
+	border: 2px solid transparent;
+}
+.radio-icon.filled.checked {
+	background-color: currentColor;
+	border-color: currentColor;
+}
+
+.radio-icon.standard {
+	border: none;
+	background-color: transparent;
+}
+.radio-icon.standard.checked {
+	background-color: currentColor;
+}
+
+/* === Colors === */
+.radio-root.primary .radio-icon.checked {
+	color: #1976d2;
+}
+.radio-root.secondary .radio-icon.checked {
+	color: #9c27b0;
+}
+.radio-root.success .radio-icon.checked {
+	color: #2e7d32;
+}
+.radio-root.error .radio-icon.checked {
+	color: #d32f2f;
+}
+.radio-root.warning .radio-icon.checked {
+	color: #ed6c02;
+}
+.radio-root.info .radio-icon.checked {
+	color: #0288d1;
+}
+.radio-root.default .radio-icon.checked {
+	color: #555;
+}
+
+/* Disabled */
+.radio-root.disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}

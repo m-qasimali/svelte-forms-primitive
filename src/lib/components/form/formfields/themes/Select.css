@@ -1,0 +1,85 @@
+.select-root {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	margin: 0.5rem 0;
+	font-family: sans-serif;
+}
+
+.select-label {
+	margin-bottom: 4px;
+	font-size: 14px;
+	color: #555;
+}
+
+.select-wrapper {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	width: 100%;
+}
+
+.select-element {
+	appearance: none;
+	width: 100%;
+	padding: 8px 36px 8px 12px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	background-color: white;
+	font-size: 14px;
+	cursor: pointer;
+	transition: border-color 0.2s;
+}
+
+.select-element:focus {
+	outline: none;
+	border-color: #1976d2;
+}
+
+.select-icon {
+	position: absolute;
+	right: 12px;
+	pointer-events: none;
+	font-size: 14px;
+	color: #555;
+}
+
+/* === Variants === */
+.select-root.outlined .select-element {
+	border: 1px solid #ccc;
+	background-color: white;
+}
+
+.select-root.filled .select-element {
+	background-color: #f5f5f5;
+	border: none;
+	border-bottom: 1px solid #ccc;
+	border-radius: 4px 4px 0 0;
+}
+
+.select-root.standard .select-element {
+	border: none;
+	border-bottom: 1px solid #ccc;
+	border-radius: 0;
+}
+
+/* Error */
+.select-root.error .select-element {
+	border-color: #d32f2f;
+}
+.select-root.error .select-label,
+.helper-text.error {
+	color: #d32f2f;
+}
+
+/* Full width */
+.select-root.fullWidth,
+.select-field.fullWidth {
+	width: 100%;
+}
+
+.helper-text {
+	font-size: 12px;
+	margin-top: 4px;
+	color: #666;
+}

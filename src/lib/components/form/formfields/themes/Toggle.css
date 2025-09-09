@@ -1,0 +1,79 @@
+.toggle-button-group {
+	display: flex;
+	gap: 4px;
+}
+.toggle-button-group.vertical {
+	flex-direction: column;
+}
+
+.toggle-button {
+	border: 1px solid #ccc;
+	background: #fff;
+	padding: 6px 12px;
+	cursor: pointer;
+	border-radius: 4px;
+	transition: all 0.2s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.toggle-button.small {
+	padding: 4px 8px;
+	font-size: 12px;
+}
+.toggle-button.medium {
+	padding: 6px 12px;
+	font-size: 14px;
+}
+.toggle-button.large {
+	padding: 8px 16px;
+	font-size: 16px;
+}
+
+.toggle-button.fullWidth {
+	flex: 1;
+}
+
+.toggle-button.selected {
+	background: #1976d2;
+	color: #fff;
+	border-color: #1976d2;
+}
+
+.toggle-button.disabled {
+	background: #f0f0f0;
+	color: #aaa;
+	cursor: not-allowed;
+}
+
+.toggle-button.primary.selected {
+	background: #1976d2;
+	border-color: #1976d2;
+	color: #fff;
+}
+.toggle-button.secondary.selected {
+	background: #9c27b0;
+	border-color: #9c27b0;
+	color: #fff;
+}
+.toggle-button.error.selected {
+	background: #d32f2f;
+	border-color: #d32f2f;
+	color: #fff;
+}
+.toggle-button.success.selected {
+	background: #2e7d32;
+	border-color: #2e7d32;
+	color: #fff;
+}
+.toggle-button.warning.selected {
+	background: #ed6c02;
+	border-color: #ed6c02;
+	color: #fff;
+}
+.toggle-button.info.selected {
+	background: #0288d1;
+	border-color: #0288d1;
+	color: #fff;
+}

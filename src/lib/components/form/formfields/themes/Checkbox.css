@@ -1,0 +1,111 @@
+.checkbox-root {
+	display: inline-flex;
+	align-items: center;
+	cursor: pointer;
+	user-select: none;
+	position: relative;
+	font-family: sans-serif;
+	margin: 4px;
+}
+
+.checkbox-root.disabled {
+	cursor: not-allowed;
+	opacity: 0.6;
+}
+
+.checkbox-input {
+	appearance: none;
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+	margin: 0;
+}
+
+.checkbox-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	height: 20px;
+	border: 2px solid #999;
+	border-radius: 4px;
+	transition: all 0.2s;
+	margin-right: 8px;
+	font-size: 14px;
+	color: transparent;
+	background: white;
+}
+
+.checkbox-root.checked .checkbox-icon {
+	background: #1976d2;
+	border-color: #1976d2;
+	color: white;
+}
+
+.checkbox-root.indeterminate .checkbox-icon {
+	background: #1976d2;
+	border-color: #1976d2;
+	color: white;
+}
+
+.checkbox-label {
+	font-size: 14px;
+	color: #333;
+}
+
+/* === Sizes === */
+.checkbox-root.small .checkbox-icon {
+	width: 16px;
+	height: 16px;
+	font-size: 12px;
+}
+
+.checkbox-root.medium .checkbox-icon {
+	width: 20px;
+	height: 20px;
+	font-size: 14px;
+}
+
+/* === Colors === */
+.checkbox-root.primary.checked .checkbox-icon,
+.checkbox-root.primary.indeterminate .checkbox-icon {
+	background: #1976d2;
+	border-color: #1976d2;
+}
+
+.checkbox-root.secondary.checked .checkbox-icon,
+.checkbox-root.secondary.indeterminate .checkbox-icon {
+	background: #9c27b0;
+	border-color: #9c27b0;
+}
+
+.checkbox-root.success.checked .checkbox-icon,
+.checkbox-root.success.indeterminate .checkbox-icon {
+	background: #2e7d32;
+	border-color: #2e7d32;
+}
+
+.checkbox-root.error.checked .checkbox-icon,
+.checkbox-root.error.indeterminate .checkbox-icon {
+	background: #d32f2f;
+	border-color: #d32f2f;
+}
+
+.checkbox-root.warning.checked .checkbox-icon,
+.checkbox-root.warning.indeterminate .checkbox-icon {
+	background: #ed6c02;
+	border-color: #ed6c02;
+}
+
+.checkbox-root.info.checked .checkbox-icon,
+.checkbox-root.info.indeterminate .checkbox-icon {
+	background: #0288d1;
+	border-color: #0288d1;
+}
+
+.checkbox-root.default.checked .checkbox-icon,
+.checkbox-root.default.indeterminate .checkbox-icon {
+	background: #666;
+	border-color: #666;
+}
