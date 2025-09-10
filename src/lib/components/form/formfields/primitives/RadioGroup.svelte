@@ -1,10 +1,9 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
 	import '$lib/components/form/formfields/themes/RadioGroup.css';
 
 	let {
 		name = '',
-		value = $bindable(''),
+		value = $bindable(),
 		options = [] as {
 			value: string;
 			label: string;
@@ -13,17 +12,18 @@
 		row = false,
 		size = 'medium', // small | medium | large
 		color = 'primary', // primary | secondary | success | error | warning | info | default
-		variant = 'filled', // outlined | filled | standard
+		variant = 'outlined', // outlined | filled | standard
 		disabled = false,
 		className = ''
 	} = $props();
 
-	const dispatch = createEventDispatcher();
-
 	function handleChange(selected: string) {
 		value = selected;
-		dispatch('change', value);
 	}
+
+	$effect(() => {
+		console.log('value: ', value);
+	});
 </script>
 
 <div

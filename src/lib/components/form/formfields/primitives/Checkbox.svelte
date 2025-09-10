@@ -7,7 +7,7 @@
 		id = crypto.randomUUID(),
 		name = '',
 		value = 'on',
-		checked = $bindable(false),
+		checked = $bindable(),
 		indeterminate = false,
 		required = false,
 

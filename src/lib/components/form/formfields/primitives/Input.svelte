@@ -19,7 +19,7 @@
 
 		// Customization props
 		variant = 'outlined', // 'outlined' | 'filled' | 'underline'
-		size = 'medium', // 'small' | 'medium' | 'large'
+		size = 'small', // 'small' | 'medium' | 'large'
 		fullWidth = false,
 		error = false,
 		className = '',

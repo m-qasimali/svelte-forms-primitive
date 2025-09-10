@@ -2,7 +2,7 @@
 	import '$lib/components/form/formfields/themes/Switch.css';
 
 	let {
-		checked = $bindable(false), // reactive, can be bound in parent
+		checked = $bindable(), // reactive, can be bound in parent
 		disabled = false,
 		required = false,
 		id = crypto.randomUUID(),
@@ -10,7 +10,7 @@
 		value = 'on',
 		size = 'medium', // small | medium
 		color = 'primary', // primary | secondary | success | error | info | warning | default
-		edge: edge = false, // 'start' | 'end' | false
+		edge = false as false | 'start' | 'end', // ✅ FIXED typing
 		className = ''
 	} = $props();
 
@@ -35,7 +35,7 @@
 		{required}
 		{disabled}
 		{checked}
-		on:change={handleChange}
+		onchange={handleChange}
 	/>
 	<span class="switch-track"></span>
 	<span class="switch-thumb"></span>

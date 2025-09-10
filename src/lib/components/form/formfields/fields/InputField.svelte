@@ -6,7 +6,7 @@
 	let {
 		// data
 		name,
-		value = $bindable(''),
+		value = $bindable(),
 		label = '',
 		description = '',
 		error: errorText = '',

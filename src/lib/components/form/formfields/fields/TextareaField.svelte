@@ -5,7 +5,7 @@
 	let {
 		// data
 		name,
-		value = $bindable(''),
+		value = $bindable(),
 		label = '',
 		description = '',
 		error: errorText = '',
@@ -78,10 +78,6 @@
 			{...props}
 		/>
 	</div>
-
-	{#if description}
-		<p id={descId} class="field__hint">{description}</p>
-	{/if}
 
 	{#if errorText}
 		<p id={msgId} class="field__message">{errorText}</p>

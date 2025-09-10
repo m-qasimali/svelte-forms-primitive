@@ -9,7 +9,7 @@
 		<label class="field-label">{label}</label>
 	{/if}
 
-	<RadioGroup {...restProps} className={error ? 'error' : ''} />
+	<RadioGroup {...restProps} bind:value className={error ? 'error' : ''} />
 
 	{#if helperText}
 		<p class="helper-text {error ? 'error' : ''}">{helperText}</p>

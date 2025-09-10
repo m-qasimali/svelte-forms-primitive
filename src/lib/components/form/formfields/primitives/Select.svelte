@@ -29,9 +29,9 @@
 <div
 	class={`select-root ${variant} ${error ? 'error' : ''} ${fullWidth ? 'fullWidth' : ''} ${className}`}
 >
-	{#if label}
+	<!-- {#if label}
 		<label for={id} class="select-label">{label}{required ? '*' : ''}</label>
-	{/if}
+	{/if} -->
 
 	<div class="select-wrapper">
 		<select
@@ -41,7 +41,7 @@
 			{disabled}
 			{required}
 			class="select-element"
-			on:change={handleChange}
+			onchange={handleChange}
 		>
 			{#if placeholder}
 				<option value="" disabled selected={value === ''}>{placeholder}</option>
